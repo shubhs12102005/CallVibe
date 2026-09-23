@@ -54,14 +54,14 @@ export default function LoginPage({ onNavigate }) {
     <div className="auth-page-container">
       {/* Top Floating Navigation Header */}
       <header className="auth-header-pill">
-        <div 
+        <div
           onClick={() => onNavigate('home')}
           style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}
           title="Return to CallVibe Homepage"
         >
           <img
-            src="/images/CallVibe-Logo@2x.webp"
-            alt="CallVibe"
+            src="/images/silgate-logo.jpeg"
+            alt="Silgate Logo"
             style={{ height: '28px', width: 'auto' }}
           />
         </div>
@@ -83,14 +83,12 @@ export default function LoginPage({ onNavigate }) {
       <main style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '40px 20px' }}>
         {/* CallVibe App Soundwave Badge & Title */}
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-          <div className="callvibe-soundwave-badge">
-            <svg width="34" height="34" viewBox="0 0 32 32" fill="none">
-              <rect x="3" y="11" width="3" height="10" rx="1.5" fill="#38BDF8" />
-              <rect x="9" y="7" width="3" height="18" rx="1.5" fill="#2563EB" />
-              <rect x="15" y="4" width="3" height="24" rx="1.5" fill="#9333EA" />
-              <rect x="21" y="8" width="3" height="16" rx="1.5" fill="#EC4899" />
-              <rect x="27" y="12" width="3" height="8" rx="1.5" fill="#F43F5E" />
-            </svg>
+          <div className="">
+            <img
+              src="/images/silgate-logo.jpeg"
+              alt="Silgate Logo"
+              style={{ height: '28px', width: 'auto' }}
+            />
           </div>
           <h1 style={{ fontSize: '26px', fontWeight: '800', color: '#0F172A', letterSpacing: '-0.02em', marginBottom: '4px' }}>
             CallVibe

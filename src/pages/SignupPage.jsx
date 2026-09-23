@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { 
-  User, 
-  Mail, 
-  Building, 
-  Globe, 
-  Phone, 
-  Lock, 
-  ShieldCheck, 
-  Eye, 
-  EyeOff, 
-  CheckCircle2, 
-  ArrowRight, 
-  Check, 
+import {
+  User,
+  Mail,
+  Building,
+  Globe,
+  Phone,
+  Lock,
+  ShieldCheck,
+  Eye,
+  EyeOff,
+  CheckCircle2,
+  ArrowRight,
+  Check,
   Sparkles,
   HelpCircle
 } from 'lucide-react';
@@ -101,14 +101,14 @@ export default function SignupPage({ onNavigate }) {
     <div className="auth-page-container">
       {/* Top Floating Navigation Header */}
       <header className="auth-header-pill">
-        <div 
+        <div
           onClick={() => onNavigate('home')}
           style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}
           title="Return to CallVibe Homepage"
         >
           <img
-            src="/images/CallVibe-Logo@2x.webp"
-            alt="CallVibe"
+            src="/images/silgate-logo.jpeg"
+            alt="Silgate Logo"
             style={{ height: '28px', width: 'auto' }}
           />
         </div>
@@ -139,13 +139,13 @@ export default function SignupPage({ onNavigate }) {
           <div className="signup-left-panel">
             <div>
               {/* Brand Logo */}
-              <div 
+              <div
                 onClick={() => onNavigate('home')}
                 style={{ display: 'inline-flex', alignItems: 'center', marginBottom: '32px', cursor: 'pointer' }}
               >
                 <img
-                  src="/images/CallVibe-Logo@2x.webp"
-                  alt="CallVibe"
+                  src="/images/silgate-logo.jpeg"
+                  alt="Silgate Logo"
                   style={{ height: '30px', width: 'auto' }}
                 />
               </div>

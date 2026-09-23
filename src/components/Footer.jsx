@@ -22,8 +22,8 @@ export default function Footer({ onOpenBooking, onNavigate }) {
               title="CallVibe Home"
             >
               <img
-                src="/images/CallVibe-Logo@2x.webp"
-                alt="CallVibe"
+                src="/images/silgate-logo.jpeg"
+                alt="Silgate Logo"
                 style={{ height: '32px', width: 'auto' }}
               />
             </div>

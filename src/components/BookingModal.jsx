@@ -198,7 +198,7 @@ export default function BookingModal({ isOpen, onClose }) {
                   {/* Left Column: Meeting Info */}
                   <div className="calendar-info-col">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-                      <img src="/images/CallVibe-Logo@2x.webp" alt="CallVibe" style={{ height: '22px' }} />
+                      <img src="/images/silgate-logo.jpeg" alt="Silgate Logo" style={{ height: '22px' }} />
                     </div>
                     <h4 style={{ fontSize: '18px', fontWeight: '800', color: '#0F172A', marginBottom: '8px' }}>
                       30 Min Product Walkthrough
