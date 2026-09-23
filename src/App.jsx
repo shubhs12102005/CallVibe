@@ -113,9 +113,12 @@ export default function App() {
    * and smoothly scrolls to top.
    */
   const handleNavigate = (tab) => {
-    setActiveTab(tab);
+    const route = (tab === 'integrations' || tab === 'integration') ? 'integrations' : tab;
+    setActiveTab(route);
     if (tab === 'home') {
       window.history.pushState(null, '', '/');
+    } else if (tab === 'integrations' || tab === 'integration') {
+      window.history.pushState(null, '', '/integration');
     } else {
       window.history.pushState(null, '', `/${tab}`);
     }

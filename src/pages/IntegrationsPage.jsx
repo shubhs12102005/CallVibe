@@ -55,29 +55,29 @@ export default function IntegrationsPage({ onOpenBooking }) {
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#FFFFFF' }}>
-      {/* Hero */}
+      {/* Hero Section (Light, matching original CallVibe) */}
       <section
         style={{
-          background: 'radial-gradient(110% 120% at 75% 25%, #1848B5 0%, #0E2D77 35%, #081A46 70%, #050E24 100%)',
-          color: '#FFFFFF',
-          paddingTop: '170px',
-          paddingBottom: '90px',
+          paddingTop: '160px',
+          paddingBottom: '60px',
+          backgroundColor: '#F8FAFC',
+          backgroundImage: 'radial-gradient(circle at 50% 10%, rgba(34, 100, 246, 0.08) 0%, transparent 60%)',
+          textAlign: 'center',
           position: 'relative',
-          overflow: 'hidden',
         }}
       >
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{ maxWidth: '840px', marginBottom: '40px' }}>
+        <div className="container">
+          <div style={{ maxWidth: '840px', margin: '0 auto 40px' }}>
             <SlidingHeadline
               text="Connect CallVibe with Your Entire Revenue Stack"
               staggerMs={70}
               style={{
-                fontSize: 'clamp(36px, 5vw, 60px)',
+                fontSize: 'clamp(34px, 4.6vw, 54px)',
                 fontWeight: '800',
-                lineHeight: 1.15,
+                lineHeight: 1.18,
                 letterSpacing: '-0.025em',
-                marginBottom: '24px',
-                color: '#FFFFFF',
+                marginBottom: '20px',
+                color: '#0F172A',
               }}
             />
 
@@ -85,25 +85,62 @@ export default function IntegrationsPage({ onOpenBooking }) {
               style={{
                 fontSize: '18px',
                 lineHeight: 1.65,
-                color: 'rgba(255, 255, 255, 0.82)',
+                color: '#64748B',
                 maxWidth: '680px',
-                marginBottom: '36px',
+                margin: '0 auto 36px',
               }}
             >
               Seamlessly connect 14+ cloud telephony, CRM, and messaging platforms—or manage your entire pipeline with CallVibe's built-in CRM.
             </p>
 
-            <button
-              onClick={() => {
-                const el = document.getElementById('directory');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="btn btn-gradient pix-hover-right"
-              style={{ fontSize: '16px', padding: '14px 32px' }}
-            >
-              <span>Explore Integrations</span>
-              <ArrowRight size={18} />
-            </button>
+            {/* Circle Avatars + Explore Integrations Button */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <img
+                  src="/images/circles-image-3.webp"
+                  alt="Reviewer"
+                  style={{ width: '44px', height: '44px', borderRadius: '50%', border: '3px solid #FFFFFF', zIndex: 3 }}
+                />
+                <img
+                  src="/images/circles-image-2.webp"
+                  alt="Reviewer"
+                  style={{ width: '44px', height: '44px', borderRadius: '50%', border: '3px solid #FFFFFF', marginLeft: '-14px', zIndex: 2 }}
+                />
+                <img
+                  src="/images/circles-image-1.webp"
+                  alt="Reviewer"
+                  style={{ width: '44px', height: '44px', borderRadius: '50%', border: '3px solid #FFFFFF', marginLeft: '-14px', zIndex: 1 }}
+                />
+              </div>
+
+              <button
+                onClick={() => {
+                  const el = document.getElementById('directory');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="btn btn-primary"
+                style={{ fontSize: '15px', padding: '12px 28px', borderRadius: '9999px' }}
+              >
+                <Sparkles size={16} />
+                <span>Explore Integrations</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Marquee */}
+          <div style={{ marginTop: '50px', borderTop: '1px solid #E2E8F0', paddingTop: '32px' }}>
+            <div style={{ fontSize: '13px', fontWeight: '700', color: '#1E293B', marginBottom: '16px', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+              Seamless integrations with your favorite tools
+            </div>
+            <div className="marquee-container">
+              <div className="marquee-track">
+                {directoryItems.concat(directoryItems).map((item, i) => (
+                  <div key={i} style={{ minWidth: '130px', height: '44px', display: 'flex', alignItems: 'center', padding: '0 16px' }}>
+                    <img src={item.logo} alt={item.name} style={{ maxHeight: '34px', objectFit: 'contain', filter: 'grayscale(100%) opacity(70%)' }} />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

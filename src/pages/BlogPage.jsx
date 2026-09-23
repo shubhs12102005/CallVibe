@@ -84,34 +84,35 @@ export default function BlogPage({ onOpenBooking }) {
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#FFFFFF' }}>
-      {/* Hero */}
+      {/* Hero (Light, matching original CallVibe) */}
       <section
         style={{
-          background: 'radial-gradient(110% 120% at 75% 25%, #1848B5 0%, #0E2D77 35%, #081A46 70%, #050E24 100%)',
-          color: '#FFFFFF',
-          paddingTop: '170px',
-          paddingBottom: '90px',
+          paddingTop: '160px',
+          paddingBottom: '60px',
+          backgroundColor: '#F8FAFC',
+          backgroundImage: 'radial-gradient(circle at 50% 10%, rgba(34, 100, 246, 0.08) 0%, transparent 60%)',
+          textAlign: 'center',
           position: 'relative',
         }}
       >
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{ maxWidth: '820px' }}>
-            <span className="badge-pill badge-purple" style={{ marginBottom: '16px' }}>
+        <div className="container">
+          <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+            <span className="badge-pill badge-blue-subtle" style={{ marginBottom: '16px' }}>
               CallVibe Insights
             </span>
             <SlidingHeadline
               text="Latest Insights in Voice AI & Revenue Operations"
               staggerMs={70}
               style={{
-                fontSize: 'clamp(36px, 5vw, 58px)',
+                fontSize: 'clamp(34px, 4.6vw, 54px)',
                 fontWeight: '800',
-                lineHeight: 1.16,
+                lineHeight: 1.18,
                 letterSpacing: '-0.025em',
-                marginBottom: '20px',
-                color: '#FFFFFF',
+                marginBottom: '18px',
+                color: '#0F172A',
               }}
             />
-            <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.6, maxWidth: '680px' }}>
+            <p style={{ fontSize: '18px', color: '#64748B', lineHeight: 1.6, maxWidth: '680px', margin: '0 auto' }}>
               Data-backed tactical guides, industry case studies, and research to help revenue teams improve conversions and coaching.
             </p>
           </div>

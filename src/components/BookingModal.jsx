@@ -17,10 +17,11 @@ import {
 /**
  * BookingModal Component
  * 
- * Fully independent, native interactive demo booking calendar and quick request form:
- * - Eliminates third-party iframe redirects to external sites
- * - Interactive calendar selector with live time slot booking
- * - Instant confirmation and calendar invitation preview
+ * Fully responsive, scrollable, independent interactive demo booking modal:
+ * - Fixes scrollability and responsive layout on all screen sizes
+ * - Smooth vertical scrolling with max-height constraint
+ * - Interactive calendar slot selection (dates & times)
+ * - Quick request form fallback
  */
 export default function BookingModal({ isOpen, onClose }) {
   const [activeMode, setActiveMode] = useState('calendar'); // 'calendar' or 'form'
@@ -33,7 +34,7 @@ export default function BookingModal({ isOpen, onClose }) {
     name: '',
     email: '',
     company: '',
-    guests: '',
+    notes: '',
   });
 
   // Direct Quick Request Form state
@@ -75,27 +76,45 @@ export default function BookingModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="modal-backdrop" onClick={resetAll}>
+    <div 
+      className="modal-backdrop" 
+      onClick={resetAll}
+      style={{
+        overflowY: 'auto',
+        padding: '20px 14px',
+        alignItems: 'center',
+      }}
+    >
       <div
         className="modal-content"
         onClick={(e) => e.stopPropagation()}
-        style={{ padding: '0', overflow: 'hidden', maxWidth: '820px' }}
+        style={{
+          padding: '0',
+          maxWidth: '840px',
+          width: '100%',
+          maxHeight: '90vh',
+          display: 'flex',
+          flexDirection: 'column',
+          overflow: 'hidden',
+          borderRadius: '20px',
+        }}
       >
-        {/* Modal Top Header */}
+        {/* Sticky Modal Top Header */}
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            padding: '18px 28px',
+            padding: '16px 24px',
             backgroundColor: '#0A1124',
             color: '#FFFFFF',
             borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+            flexShrink: 0,
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <CalendarIcon size={20} color="#38BDF8" />
-            <h3 style={{ fontSize: '18px', fontWeight: '700', margin: 0 }}>
+            <h3 style={{ fontSize: '17px', fontWeight: '700', margin: 0 }}>
               Schedule CallVibe Enterprise Demo
             </h3>
           </div>
@@ -124,33 +143,35 @@ export default function BookingModal({ isOpen, onClose }) {
           style={{
             display: 'flex',
             backgroundColor: '#F1F5F9',
-            padding: '8px 28px',
-            gap: '12px',
+            padding: '8px 20px',
+            gap: '10px',
             borderBottom: '1px solid #E2E8F0',
+            flexShrink: 0,
+            flexWrap: 'wrap',
           }}
         >
           <button
             onClick={() => setActiveMode('calendar')}
             style={{
-              padding: '8px 16px',
+              padding: '8px 14px',
               borderRadius: '8px',
-              fontSize: '14px',
-              fontWeight: activeMode === 'calendar' ? '700' : '500',
+              fontSize: '13px',
+              fontWeight: activeMode === 'calendar' ? '700' : '600',
               backgroundColor: activeMode === 'calendar' ? '#FFFFFF' : 'transparent',
               color: activeMode === 'calendar' ? '#1E40AF' : '#64748B',
               boxShadow: activeMode === 'calendar' ? '0 2px 6px rgba(0,0,0,0.05)' : 'none',
               transition: 'all 0.2s',
             }}
           >
-            Interactive Calendar (Instant Booking)
+            Interactive Calendar
           </button>
           <button
             onClick={() => setActiveMode('form')}
             style={{
-              padding: '8px 16px',
+              padding: '8px 14px',
               borderRadius: '8px',
-              fontSize: '14px',
-              fontWeight: activeMode === 'form' ? '700' : '500',
+              fontSize: '13px',
+              fontWeight: activeMode === 'form' ? '700' : '600',
               backgroundColor: activeMode === 'form' ? '#FFFFFF' : 'transparent',
               color: activeMode === 'form' ? '#1E40AF' : '#64748B',
               boxShadow: activeMode === 'form' ? '0 2px 6px rgba(0,0,0,0.05)' : 'none',
@@ -161,22 +182,22 @@ export default function BookingModal({ isOpen, onClose }) {
           </button>
         </div>
 
-        {/* Modal Body */}
-        <div style={{ padding: '28px', minHeight: '480px' }}>
+        {/* Modal Scrollable Body */}
+        <div 
+          style={{ 
+            padding: '24px', 
+            overflowY: 'auto', 
+            flex: 1,
+            WebkitOverflowScrolling: 'touch',
+          }}
+        >
           {activeMode === 'calendar' ? (
             <div>
               {bookingStep === 1 && (
-                <div
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: '260px 1fr 180px',
-                    gap: '24px',
-                  }}
-                  className="calendar-grid-layout"
-                >
+                <div className="calendar-responsive-grid">
                   {/* Left Column: Meeting Info */}
-                  <div style={{ borderRight: '1px solid #F1F5F9', paddingRight: '20px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
+                  <div className="calendar-info-col">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
                       <img src="/images/CallVibe-Logo@2x.webp" alt="CallVibe" style={{ height: '22px' }} />
                     </div>
                     <h4 style={{ fontSize: '18px', fontWeight: '800', color: '#0F172A', marginBottom: '8px' }}>
@@ -203,8 +224,8 @@ export default function BookingModal({ isOpen, onClose }) {
                   </div>
 
                   {/* Middle Column: Date Selector */}
-                  <div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+                  <div className="calendar-date-col">
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
                       <strong style={{ fontSize: '15px', color: '#0F172A' }}>September 2026</strong>
                       <div style={{ display: 'flex', gap: '4px' }}>
                         <button style={{ padding: '4px', borderRadius: '6px', border: '1px solid #E2E8F0' }}><ChevronLeft size={16} /></button>
@@ -212,11 +233,11 @@ export default function BookingModal({ isOpen, onClose }) {
                       </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '6px', textAlign: 'center', fontSize: '12px', fontWeight: '600', color: '#94A3B8', marginBottom: '8px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '4px', textAlign: 'center', fontSize: '11px', fontWeight: '700', color: '#94A3B8', marginBottom: '6px' }}>
                       <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '6px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '4px' }}>
                       {[...Array(30)].map((_, i) => {
                         const day = i + 1;
                         const isAvailable = day >= 23 && day <= 30 && day % 7 !== 5 && day % 7 !== 6;
@@ -227,15 +248,18 @@ export default function BookingModal({ isOpen, onClose }) {
                             disabled={!isAvailable}
                             onClick={() => setSelectedDate(day)}
                             style={{
-                              height: '38px',
+                              height: '36px',
                               borderRadius: '8px',
-                              fontSize: '13px',
+                              fontSize: '12px',
                               fontWeight: isSelected ? '700' : '500',
                               backgroundColor: isSelected ? '#2264F6' : isAvailable ? '#EFF6FF' : 'transparent',
                               color: isSelected ? '#FFFFFF' : isAvailable ? '#1E40AF' : '#CBD5E1',
                               cursor: isAvailable ? 'pointer' : 'default',
-                              transition: 'all 0.2s',
+                              transition: 'all 0.15s',
                               border: isSelected ? 'none' : isAvailable ? '1px solid #DBEAFE' : 'none',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
                             }}
                           >
                             {day}
@@ -246,32 +270,35 @@ export default function BookingModal({ isOpen, onClose }) {
                   </div>
 
                   {/* Right Column: Time Slots */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <div style={{ fontSize: '13px', fontWeight: '700', color: '#334155', marginBottom: '8px' }}>
-                      Sept {selectedDate} Slots:
+                  <div className="calendar-time-col">
+                    <div style={{ fontSize: '13px', fontWeight: '700', color: '#334155', marginBottom: '10px' }}>
+                      Sept {selectedDate} Available:
                     </div>
-                    {timeSlots.map((time) => (
-                      <button
-                        key={time}
-                        onClick={() => setSelectedTime(time)}
-                        style={{
-                          padding: '10px 8px',
-                          borderRadius: '8px',
-                          fontSize: '13px',
-                          fontWeight: selectedTime === time ? '700' : '600',
-                          backgroundColor: selectedTime === time ? '#2264F6' : '#FFFFFF',
-                          color: selectedTime === time ? '#FFFFFF' : '#2264F6',
-                          border: '1.5px solid #2264F6',
-                          transition: 'all 0.2s',
-                        }}
-                      >
-                        {time}
-                      </button>
-                    ))}
+                    <div className="time-slots-wrapper">
+                      {timeSlots.map((time) => (
+                        <button
+                          key={time}
+                          onClick={() => setSelectedTime(time)}
+                          style={{
+                            padding: '9px 8px',
+                            borderRadius: '8px',
+                            fontSize: '12px',
+                            fontWeight: selectedTime === time ? '700' : '600',
+                            backgroundColor: selectedTime === time ? '#2264F6' : '#FFFFFF',
+                            color: selectedTime === time ? '#FFFFFF' : '#2264F6',
+                            border: '1.5px solid #2264F6',
+                            transition: 'all 0.15s',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          {time}
+                        </button>
+                      ))}
+                    </div>
                     <button
                       onClick={() => setBookingStep(2)}
                       className="btn btn-primary"
-                      style={{ marginTop: '12px', fontSize: '13px', padding: '10px' }}
+                      style={{ marginTop: '14px', width: '100%', fontSize: '13px', padding: '10px 14px' }}
                     >
                       Next Step →
                     </button>
@@ -281,7 +308,7 @@ export default function BookingModal({ isOpen, onClose }) {
 
               {/* Step 2: Attendee Details */}
               {bookingStep === 2 && (
-                <form onSubmit={handleCalendarSubmit} style={{ maxWidth: '480px', margin: '0 auto' }}>
+                <form onSubmit={handleCalendarSubmit} style={{ maxWidth: '480px', margin: '0 auto', padding: '10px 0' }}>
                   <h4 style={{ fontSize: '20px', fontWeight: '800', color: '#0F172A', marginBottom: '6px' }}>
                     Enter Details for Sept {selectedDate}, {selectedTime}
                   </h4>
@@ -325,19 +352,31 @@ export default function BookingModal({ isOpen, onClose }) {
                       />
                     </div>
 
+                    <div>
+                      <label className="auth-label">Notes for our AI Specialist (Optional)</label>
+                      <textarea
+                        rows="2"
+                        value={attendee.notes}
+                        onChange={(e) => setAttendee({ ...attendee, notes: e.target.value })}
+                        placeholder="e.g. Sales team size, telephony system..."
+                        className="auth-input"
+                        style={{ resize: 'vertical' }}
+                      />
+                    </div>
+
                     <div style={{ display: 'flex', gap: '12px', marginTop: '12px' }}>
                       <button
                         type="button"
                         onClick={() => setBookingStep(1)}
                         className="btn btn-outline"
-                        style={{ flex: 1 }}
+                        style={{ flex: 1, padding: '12px' }}
                       >
                         Back
                       </button>
                       <button
                         type="submit"
                         className="btn btn-primary"
-                        style={{ flex: 2 }}
+                        style={{ flex: 2, padding: '12px' }}
                       >
                         Confirm Booking
                       </button>
@@ -389,8 +428,8 @@ export default function BookingModal({ isOpen, onClose }) {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleQuickSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px', maxWidth: '580px', margin: '0 auto' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <form onSubmit={handleQuickSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '580px', margin: '0 auto' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
                 <div>
                   <label className="auth-label">Full Name *</label>
                   <input
@@ -415,7 +454,7 @@ export default function BookingModal({ isOpen, onClose }) {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
                 <div>
                   <label className="auth-label">Company Name *</label>
                   <input
@@ -467,9 +506,39 @@ export default function BookingModal({ isOpen, onClose }) {
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
-          .calendar-grid-layout {
+        .calendar-responsive-grid {
+          display: grid;
+          grid-template-columns: 240px 1fr 160px;
+          gap: 20px;
+          align-items: start;
+        }
+
+        .calendar-info-col {
+          border-right: 1px solid #F1F5F9;
+          padding-right: 16px;
+        }
+
+        .time-slots-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        @media (max-width: 820px) {
+          .calendar-responsive-grid {
             grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
+          .calendar-info-col {
+            border-right: none !important;
+            border-bottom: 1px solid #F1F5F9;
+            padding-right: 0 !important;
+            padding-bottom: 20px;
+          }
+          .time-slots-wrapper {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)) !important;
+            gap: 8px !important;
           }
         }
       `}</style>

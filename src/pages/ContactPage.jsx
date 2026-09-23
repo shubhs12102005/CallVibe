@@ -6,15 +6,27 @@ import {
   Clock, 
   Send, 
   CheckCircle2, 
-  MessageSquare,
-  Building2
+  X,
+  MessageSquare
 } from 'lucide-react';
 import SlidingHeadline from '../components/SlidingHeadline';
 import CtaBanner from '../components/CtaBanner';
 
+/**
+ * ContactPage Component
+ * 
+ * Recreates the exact CallVibe Contact page:
+ * - Light hero with "Get in Touch" headline and "Send Us a Message" CTA
+ * - 3 Contact info cards (Call Us, Visit Our Office, Email Us)
+ * - Office details section with hours, address, and email
+ * - Embedded responsive Google Map of Midview City Singapore
+ * - Interactive direct inquiry message modal
+ * - Bottom CTA banner
+ */
 export default function ContactPage({ onOpenBooking }) {
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
+  const [isMessageModalOpen, setIsMessageModalOpen] = useState(false);
+  const [submittedMessage, setSubmittedMessage] = useState(false);
+  const [msgData, setMsgData] = useState({
     name: '',
     email: '',
     phone: '',
@@ -22,72 +34,105 @@ export default function ContactPage({ onOpenBooking }) {
     message: '',
   });
 
-  const handleSubmit = (e) => {
+  const handleMsgSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmittedMessage(true);
+  };
+
+  const scrollToMap = () => {
+    const el = document.getElementById('office-map');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#FFFFFF' }}>
-      {/* Hero */}
+    <div style={{ minHeight: '100vh', backgroundColor: '#FFFFFF', overflowX: 'hidden' }}>
+      {/* 1. Hero Section (Light, matching original CallVibe) */}
       <section
         style={{
-          background: 'radial-gradient(110% 120% at 75% 25%, #1848B5 0%, #0E2D77 35%, #081A46 70%, #050E24 100%)',
-          color: '#FFFFFF',
-          paddingTop: '170px',
-          paddingBottom: '90px',
-          position: 'relative',
+          paddingTop: '160px',
+          paddingBottom: '80px',
+          backgroundColor: '#F8FAFC',
+          backgroundImage: 'radial-gradient(circle at 50% 15%, rgba(34, 100, 246, 0.08) 0%, transparent 65%)',
+          textAlign: 'center',
         }}
       >
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{ maxWidth: '820px' }}>
-            <span className="badge-pill badge-purple" style={{ marginBottom: '16px' }}>
-              We're Here to Help
-            </span>
+        <div className="container">
+          <div style={{ maxWidth: '780px', margin: '0 auto' }}>
             <SlidingHeadline
-              text="Get in Touch with CallVibe"
+              text="Get in Touch"
               staggerMs={70}
               style={{
-                fontSize: 'clamp(36px, 5vw, 60px)',
+                fontSize: 'clamp(36px, 5vw, 56px)',
                 fontWeight: '800',
-                lineHeight: 1.15,
+                color: '#0F172A',
                 letterSpacing: '-0.025em',
-                marginBottom: '20px',
-                color: '#FFFFFF',
+                marginBottom: '16px',
               }}
             />
-            <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.6, maxWidth: '680px' }}>
-              Connect with us for enterprise inquiries, custom telephony integration support, or partnership opportunities.
+
+            <p
+              style={{
+                fontSize: '18px',
+                color: '#64748B',
+                lineHeight: 1.6,
+                maxWidth: '600px',
+                margin: '0 auto 32px',
+              }}
+            >
+              Connect with us for any questions, support, or partnership inquiries.
             </p>
+
+            <button
+              onClick={() => {
+                setIsMessageModalOpen(true);
+                setSubmittedMessage(false);
+              }}
+              className="btn btn-primary"
+              style={{
+                fontSize: '15px',
+                padding: '12px 28px',
+                borderRadius: '9999px',
+                boxShadow: '0 4px 14px rgba(34, 100, 246, 0.35)',
+              }}
+            >
+              <span>Send Us a Message</span>
+              <Send size={16} />
+            </button>
           </div>
         </div>
       </section>
 
-      {/* 3 Contact Info Cards */}
-      <section style={{ padding: '60px 0', backgroundColor: '#F8FAFC' }}>
+      {/* 2. 3 Contact Cards Row */}
+      <section style={{ padding: '60px 0 80px', backgroundColor: '#FFFFFF' }}>
         <div className="container">
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '24px',
-              marginTop: '-110px',
-              position: 'relative',
-              zIndex: 3,
+              gap: '28px',
             }}
           >
-            {/* Card 1: Support */}
+            {/* Card 1: Call Us */}
             <div
               style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: '20px',
+                backgroundColor: '#F8FAFC',
+                borderRadius: '24px',
                 border: '1px solid #E2E8F0',
-                padding: '36px 30px',
-                boxShadow: '0 15px 35px -10px rgba(0, 0, 0, 0.08)',
-                transition: 'all 0.3s ease',
+                padding: '40px 32px',
+                textAlign: 'left',
+                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.04)',
+                transition: 'transform 0.25s, box-shadow 0.25s',
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-4px)')}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 16px 32px -8px rgba(34, 100, 246, 0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(0, 0, 0, 0.04)';
+              }}
             >
               <div
                 style={{
@@ -98,389 +143,381 @@ export default function ContactPage({ onOpenBooking }) {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#2264F6',
-                  marginBottom: '20px',
+                  marginBottom: '24px',
                 }}
               >
-                <Phone size={26} />
+                <Phone size={26} color="#2264F6" />
               </div>
               <h3 style={{ fontSize: '20px', fontWeight: '800', color: '#0F172A', marginBottom: '8px' }}>
-                Contact Support
+                Call Us
               </h3>
-              <p style={{ fontSize: '14px', color: '#64748B', marginBottom: '16px' }}>
-                Mon to Fri (9am – 6pm SGT)
+              <p style={{ fontSize: '15px', color: '#64748B', marginBottom: '24px' }}>
+                Mon to Fri (9am – 6pm).
               </p>
               <a
                 href="tel:+6568160011"
-                style={{ fontSize: '18px', fontWeight: '800', color: '#2264F6' }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '10px 20px',
+                  borderRadius: '9999px',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid #E2E8F0',
+                  color: '#0F172A',
+                  fontSize: '14px',
+                  fontWeight: '700',
+                  boxShadow: '0 2px 6px rgba(0,0,0,0.04)',
+                  transition: 'all 0.2s',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = '#2264F6';
+                  e.currentTarget.style.color = '#2264F6';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = '#E2E8F0';
+                  e.currentTarget.style.color = '#0F172A';
+                }}
               >
-                +65 6816 0011
+                <Phone size={14} color="#2264F6" />
+                <span>+65 6816 0011</span>
               </a>
             </div>
 
-            {/* Card 2: HQ Office */}
+            {/* Card 2: Visit Our Office */}
             <div
               style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: '20px',
+                backgroundColor: '#F8FAFC',
+                borderRadius: '24px',
                 border: '1px solid #E2E8F0',
-                padding: '36px 30px',
-                boxShadow: '0 15px 35px -10px rgba(0, 0, 0, 0.08)',
-                transition: 'all 0.3s ease',
+                padding: '40px 32px',
+                textAlign: 'left',
+                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.04)',
+                transition: 'transform 0.25s, box-shadow 0.25s',
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-4px)')}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 16px 32px -8px rgba(34, 100, 246, 0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(0, 0, 0, 0.04)';
+              }}
             >
               <div
                 style={{
                   width: '56px',
                   height: '56px',
                   borderRadius: '16px',
-                  backgroundColor: '#FAF5FF',
+                  backgroundColor: '#EFF6FF',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#9333EA',
-                  marginBottom: '20px',
+                  marginBottom: '24px',
                 }}
               >
-                <MapPin size={26} />
+                <MapPin size={26} color="#2264F6" />
               </div>
               <h3 style={{ fontSize: '20px', fontWeight: '800', color: '#0F172A', marginBottom: '8px' }}>
-                Visit CallVibe HQ
+                Visit Our Office
               </h3>
-              <p style={{ fontSize: '14px', color: '#64748B', marginBottom: '16px', lineHeight: 1.5 }}>
-                22, Sin Ming Lane #06-76, Midview City<br />
-                Singapore 573969
+              <p style={{ fontSize: '14px', color: '#64748B', lineHeight: 1.5, marginBottom: '24px' }}>
+                22, Sin Ming Lane #06-76, Midview City Singapore 573969
               </p>
-              <span style={{ fontSize: '14px', fontWeight: '700', color: '#9333EA' }}>
-                Open 8:00 AM – 6:00 PM
-              </span>
+              <button
+                onClick={scrollToMap}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '10px 20px',
+                  borderRadius: '9999px',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid #E2E8F0',
+                  color: '#0F172A',
+                  fontSize: '14px',
+                  fontWeight: '700',
+                  boxShadow: '0 2px 6px rgba(0,0,0,0.04)',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = '#2264F6';
+                  e.currentTarget.style.color = '#2264F6';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = '#E2E8F0';
+                  e.currentTarget.style.color = '#0F172A';
+                }}
+              >
+                <MapPin size={14} color="#2264F6" />
+                <span>Show on map</span>
+              </button>
             </div>
 
-            {/* Card 3: Email */}
+            {/* Card 3: Email Us */}
             <div
               style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: '20px',
+                backgroundColor: '#F8FAFC',
+                borderRadius: '24px',
                 border: '1px solid #E2E8F0',
-                padding: '36px 30px',
-                boxShadow: '0 15px 35px -10px rgba(0, 0, 0, 0.08)',
-                transition: 'all 0.3s ease',
+                padding: '40px 32px',
+                textAlign: 'left',
+                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.04)',
+                transition: 'transform 0.25s, box-shadow 0.25s',
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-4px)')}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 16px 32px -8px rgba(34, 100, 246, 0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(0, 0, 0, 0.04)';
+              }}
             >
               <div
                 style={{
                   width: '56px',
                   height: '56px',
                   borderRadius: '16px',
-                  backgroundColor: '#ECFDF5',
+                  backgroundColor: '#EFF6FF',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#059669',
-                  marginBottom: '20px',
+                  marginBottom: '24px',
                 }}
               >
-                <Mail size={26} />
+                <Mail size={26} color="#2264F6" />
               </div>
               <h3 style={{ fontSize: '20px', fontWeight: '800', color: '#0F172A', marginBottom: '8px' }}>
-                Send an Email
+                Email Us
               </h3>
-              <p style={{ fontSize: '14px', color: '#64748B', marginBottom: '16px' }}>
-                Guaranteed reply within 24 hours
+              <p style={{ fontSize: '15px', color: '#64748B', marginBottom: '24px' }}>
+                Get reply within 24 hours.
               </p>
               <a
                 href="mailto:info@callvibe.ai"
-                style={{ fontSize: '18px', fontWeight: '800', color: '#059669' }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '10px 20px',
+                  borderRadius: '9999px',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid #E2E8F0',
+                  color: '#0F172A',
+                  fontSize: '14px',
+                  fontWeight: '700',
+                  boxShadow: '0 2px 6px rgba(0,0,0,0.04)',
+                  transition: 'all 0.2s',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = '#2264F6';
+                  e.currentTarget.style.color = '#2264F6';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = '#E2E8F0';
+                  e.currentTarget.style.color = '#0F172A';
+                }}
               >
-                info@callvibe.ai
+                <Send size={14} color="#2264F6" />
+                <span>info@callvibe.ai</span>
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Interactive Contact Form & Office Map */}
-      <section style={{ padding: '80px 0', backgroundColor: '#FFFFFF' }}>
+      {/* 3. Visit Our Office Information Section */}
+      <section style={{ padding: '80px 0', backgroundColor: '#F8FAFC', borderTop: '1px solid #E2E8F0' }}>
         <div className="container">
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: '1.2fr 1fr',
+              gridTemplateColumns: '1.2fr 1.8fr',
               gap: '48px',
-              alignItems: 'start',
+              alignItems: 'center',
             }}
-            className="contact-layout"
+            className="office-info-grid"
           >
-            {/* Form */}
-            <div
-              style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: '24px',
-                border: '1px solid #E2E8F0',
-                padding: '40px',
-                boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.04)',
-              }}
-            >
-              <h2 style={{ fontSize: '28px', fontWeight: '800', color: '#0F172A', marginBottom: '12px' }}>
-                Send Us a Message
+            {/* Left Column */}
+            <div>
+              <div style={{ fontSize: '13px', fontWeight: '700', color: '#2264F6', letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: '12px' }}>
+                CallVibe Information
+              </div>
+              <h2
+                style={{
+                  fontSize: 'clamp(32px, 4vw, 48px)',
+                  fontWeight: '800',
+                  color: '#0F172A',
+                  letterSpacing: '-0.02em',
+                  marginBottom: '24px',
+                }}
+              >
+                Visit Our Office
               </h2>
-              <p style={{ fontSize: '15px', color: '#64748B', marginBottom: '32px' }}>
-                Fill out the details below and our team will get in touch right away.
-              </p>
-
-              {submitted ? (
-                <div
-                  style={{
-                    backgroundColor: '#ECFDF5',
-                    border: '1px solid #A7F3D0',
-                    borderRadius: '16px',
-                    padding: '36px',
-                    textAlign: 'center',
-                  }}
-                >
-                  <div
-                    style={{
-                      width: '56px',
-                      height: '56px',
-                      borderRadius: '50%',
-                      backgroundColor: '#10B981',
-                      color: '#FFFFFF',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      margin: '0 auto 16px',
-                    }}
-                  >
-                    <CheckCircle2 size={32} />
-                  </div>
-                  <h4 style={{ fontSize: '22px', fontWeight: '800', color: '#065F46', marginBottom: '8px' }}>
-                    Message Sent Successfully!
-                  </h4>
-                  <p style={{ fontSize: '15px', color: '#047857', marginBottom: '20px' }}>
-                    Thank you, {formData.name}. Our enterprise team in Singapore has received your request and will follow up shortly.
-                  </p>
-                  <button
-                    onClick={() => {
-                      setSubmitted(false);
-                      setFormData({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' });
-                    }}
-                    className="btn btn-outline"
-                  >
-                    Send Another Message
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }} className="form-two-col">
-                    <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#334155', marginBottom: '6px' }}>
-                        Your Name *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="John Smith"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        style={{
-                          width: '100%',
-                          padding: '12px 16px',
-                          borderRadius: '10px',
-                          border: '1px solid #CBD5E1',
-                          fontSize: '15px',
-                          outline: 'none',
-                        }}
-                      />
-                    </div>
-
-                    <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#334155', marginBottom: '6px' }}>
-                        Work Email *
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="john@company.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        style={{
-                          width: '100%',
-                          padding: '12px 16px',
-                          borderRadius: '10px',
-                          border: '1px solid #CBD5E1',
-                          fontSize: '15px',
-                          outline: 'none',
-                        }}
-                      />
-                    </div>
-                  </div>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }} className="form-two-col">
-                    <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#334155', marginBottom: '6px' }}>
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        placeholder="+1 (555) 000-0000"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        style={{
-                          width: '100%',
-                          padding: '12px 16px',
-                          borderRadius: '10px',
-                          border: '1px solid #CBD5E1',
-                          fontSize: '15px',
-                          outline: 'none',
-                        }}
-                      />
-                    </div>
-
-                    <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#334155', marginBottom: '6px' }}>
-                        Inquiry Topic
-                      </label>
-                      <select
-                        value={formData.subject}
-                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        style={{
-                          width: '100%',
-                          padding: '12px 16px',
-                          borderRadius: '10px',
-                          border: '1px solid #CBD5E1',
-                          fontSize: '15px',
-                          backgroundColor: '#FFFFFF',
-                          outline: 'none',
-                        }}
-                      >
-                        <option value="General Inquiry">General Inquiry</option>
-                        <option value="Enterprise Demo">Enterprise Demo</option>
-                        <option value="Telephony / CRM Integration">Telephony / CRM Integration</option>
-                        <option value="Partnership">Partnership</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#334155', marginBottom: '6px' }}>
-                      Message *
-                    </label>
-                    <textarea
-                      required
-                      rows="4"
-                      placeholder="Tell us about your team size, dialer stack, and what you're looking to solve..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      style={{
-                        width: '100%',
-                        padding: '12px 16px',
-                        borderRadius: '10px',
-                        border: '1px solid #CBD5E1',
-                        fontSize: '15px',
-                        fontFamily: 'inherit',
-                        outline: 'none',
-                      }}
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="btn btn-primary pix-hover-right"
-                    style={{
-                      padding: '14px',
-                      fontSize: '16px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '8px',
-                      marginTop: '8px',
-                    }}
-                  >
-                    <Send size={18} />
-                    <span>Send Message</span>
-                  </button>
-                </form>
-              )}
+              <button
+                onClick={() => {
+                  setIsMessageModalOpen(true);
+                  setSubmittedMessage(false);
+                }}
+                className="btn btn-primary"
+                style={{
+                  fontSize: '15px',
+                  padding: '12px 28px',
+                  borderRadius: '9999px',
+                }}
+              >
+                <span>Send Us a Message</span>
+                <Send size={16} />
+              </button>
             </div>
 
-            {/* Office Info & Simulated Map */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <div
-                style={{
-                  backgroundColor: '#0F172A',
-                  borderRadius: '24px',
-                  padding: '36px',
-                  color: '#FFFFFF',
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-                  <Building2 size={24} color="#38BDF8" />
-                  <h3 style={{ fontSize: '20px', fontWeight: '800', margin: 0 }}>
-                    Singapore Headquarters
-                  </h3>
-                </div>
+            {/* Right Column: Details */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <p style={{ fontSize: '16px', color: '#475569', lineHeight: 1.6, marginBottom: '8px' }}>
+                Planning a visit? Reach out through the form and we’ll be happy to welcome you in person.
+              </p>
 
-                <p style={{ fontSize: '15px', color: '#94A3B8', lineHeight: 1.6, marginBottom: '24px' }}>
-                  Midview City is centrally situated in Singapore, hosting CallVibe's executive leadership, core research engineering, and global sales operations.
-                </p>
-
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '20px', display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#E2E8F0' }}>
-                    <MapPin size={16} color="#38BDF8" />
-                    <span>22, Sin Ming Lane #06-76, Midview City Singapore 573969</span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#E2E8F0' }}>
-                    <Clock size={16} color="#38BDF8" />
-                    <span>Operating Hours: 8:00 AM - 6:00 PM SGT</span>
-                  </div>
-                </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '15px', color: '#1E293B', fontWeight: '600' }}>
+                <Clock size={20} color="#2264F6" />
+                <span>Open 8am to 6pm</span>
               </div>
 
-              {/* Map Canvas Preview */}
-              <div
-                style={{
-                  borderRadius: '24px',
-                  height: '240px',
-                  backgroundColor: '#E2E8F0',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  border: '1px solid #CBD5E1',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <iframe
-                  title="CallVibe Location Map"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                  allowFullScreen
-                  src="https://maps.google.com/maps?q=Midview%20City%20Singapore&t=&z=14&ie=UTF8&iwloc=&output=embed"
-                />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '15px', color: '#1E293B', fontWeight: '600' }}>
+                <MapPin size={20} color="#2264F6" />
+                <span>22, Sin Ming Lane #06-76, Midview City Singapore 573969</span>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '15px', color: '#1E293B', fontWeight: '600' }}>
+                <Mail size={20} color="#2264F6" />
+                <a href="mailto:info@callvibe.ai" style={{ color: '#2264F6' }}>
+                  info@callvibe.ai
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <CtaBanner onOpenBooking={onOpenBooking} onLearnMore={onOpenBooking} />
+      {/* 4. Full-Width Interactive Google Map */}
+      <section id="office-map" style={{ width: '100%', height: '460px', borderTop: '1px solid #E2E8F0', borderBottom: '1px solid #E2E8F0' }}>
+        <iframe
+          title="CallVibe Singapore Office Location"
+          src="https://maps.google.com/maps?q=Midview%20City%20Singapore&t=&z=14&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="100%"
+          style={{ border: 0, display: 'block' }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </section>
+
+      {/* 5. Bottom CTA Banner */}
+      <CtaBanner onOpenBooking={onOpenBooking} onLearnMore={() => (window.location.pathname = '/features')} />
+
+      {/* Direct Inquiry Message Modal */}
+      {isMessageModalOpen && (
+        <div className="modal-backdrop" onClick={() => setIsMessageModalOpen(false)}>
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+            style={{ maxWidth: '520px', padding: '32px' }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <MessageSquare size={20} color="#2264F6" />
+                <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#0F172A', margin: 0 }}>
+                  Send a Message to CallVibe
+                </h3>
+              </div>
+              <button onClick={() => setIsMessageModalOpen(false)} style={{ color: '#94A3B8', padding: '4px' }}>
+                <X size={20} />
+              </button>
+            </div>
+
+            {submittedMessage ? (
+              <div style={{ textAlign: 'center', padding: '30px 10px' }}>
+                <CheckCircle2 size={48} color="#059669" style={{ margin: '0 auto 16px' }} />
+                <h4 style={{ fontSize: '20px', fontWeight: '700', color: '#0F172A', marginBottom: '8px' }}>
+                  Message Dispatched!
+                </h4>
+                <p style={{ fontSize: '14px', color: '#64748B', marginBottom: '24px' }}>
+                  Thank you for reaching out. A CallVibe representative will reply within 24 hours.
+                </p>
+                <button onClick={() => setIsMessageModalOpen(false)} className="btn btn-primary" style={{ width: '100%' }}>
+                  Close
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleMsgSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <div>
+                  <label className="auth-label">Your Name *</label>
+                  <input
+                    type="text"
+                    required
+                    value={msgData.name}
+                    onChange={(e) => setMsgData({ ...msgData, name: e.target.value })}
+                    placeholder="Jane Doe"
+                    className="auth-input"
+                  />
+                </div>
+
+                <div>
+                  <label className="auth-label">Work Email *</label>
+                  <input
+                    type="email"
+                    required
+                    value={msgData.email}
+                    onChange={(e) => setMsgData({ ...msgData, email: e.target.value })}
+                    placeholder="jane@company.com"
+                    className="auth-input"
+                  />
+                </div>
+
+                <div>
+                  <label className="auth-label">Subject</label>
+                  <select
+                    value={msgData.subject}
+                    onChange={(e) => setMsgData({ ...msgData, subject: e.target.value })}
+                    className="auth-input"
+                  >
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="Enterprise Telephony Integration">Enterprise Telephony Integration</option>
+                    <option value="Partnership / Reseller">Partnership / Reseller</option>
+                    <option value="Support Request">Support Request</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="auth-label">Message *</label>
+                  <textarea
+                    required
+                    rows="4"
+                    value={msgData.message}
+                    onChange={(e) => setMsgData({ ...msgData, message: e.target.value })}
+                    placeholder="How can we help your team?"
+                    className="auth-input"
+                    style={{ resize: 'vertical' }}
+                  />
+                </div>
+
+                <button type="submit" className="auth-submit-btn" style={{ marginTop: '8px' }}>
+                  <Send size={16} />
+                  <span>Send Message</span>
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
 
       <style>{`
-        @media (max-width: 900px) {
-          .contact-layout {
+        @media (max-width: 800px) {
+          .office-info-grid {
             grid-template-columns: 1fr !important;
-          }
-          .form-two-col {
-            grid-template-columns: 1fr !important;
+            gap: 32px !important;
           }
         }
       `}</style>
