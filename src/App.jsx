@@ -11,20 +11,58 @@ import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
 import SubPages from './components/SubPages';
 
-// Full dedicated sub-pages
+// Full dedicated pages
 import FeaturesPage from './pages/FeaturesPage';
 import IntegrationsPage from './pages/IntegrationsPage';
 import BlogPage from './pages/BlogPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 
+/**
+ * CallVibe Application Router
+ * 
+ * Provides clean path-based URL routing (e.g. /features, /integration, /login, /signup)
+ * completely eliminating hash anchors (#) and external redirects.
+ */
 export default function App() {
+  /**
+   * Resolves the active route from the current URL pathname:
+   * - Strips leading/trailing slashes
+   * - Strips any old hash format (e.g. /#integration -> /integration)
+   * - Maps both /integration and /integrations to the integrations view
+   * - Recognizes /login and /signup for native authentication views
+   */
   const getInitialRoute = () => {
-    const hash = window.location.hash.replace('#', '').toLowerCase();
-    const path = window.location.pathname.replace('/', '').toLowerCase();
-    const target = hash || path;
-    const valid = ['features', 'integrations', 'blog', 'about', 'contact', 'reviews', 'terms', 'privacy'];
-    return valid.includes(target) ? target : 'home';
+    let path = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+    const hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
+
+    // If an incoming URL has a hash (e.g. /#integration), clean it automatically
+    if (hash) {
+      path = hash;
+      const cleanPath = hash === 'home' ? '/' : `/${hash}`;
+      window.history.replaceState(null, '', cleanPath);
+    }
+
+    if (!path || path === 'home') return 'home';
+    if (path === 'integration' || path === 'integrations') return 'integrations';
+    if (path === 'login') return 'login';
+    if (path === 'signup') return 'signup';
+
+    const validRoutes = [
+      'features', 
+      'integrations', 
+      'blog', 
+      'about', 
+      'contact', 
+      'reviews', 
+      'terms', 
+      'privacy',
+      'login',
+      'signup'
+    ];
+    return validRoutes.includes(path) ? path : 'home';
   };
 
   const [activeTab, setActiveTab] = useState(getInitialRoute);
@@ -32,6 +70,7 @@ export default function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Monitor scroll for header glassmorphism and back-to-top floating button
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -39,6 +78,7 @@ export default function App() {
       setIsScrolled(scrollY > 50);
     };
 
+    // Listen to browser Back/Forward navigation
     const handlePopState = () => {
       setActiveTab(getInitialRoute());
     };
@@ -66,15 +106,38 @@ export default function App() {
     setIsBookingModalOpen(false);
   };
 
+  /**
+   * Clean URL Navigation Handler
+   * 
+   * Updates state, pushes a clean path to browser history without '#' symbols,
+   * and smoothly scrolls to top.
+   */
   const handleNavigate = (tab) => {
     setActiveTab(tab);
     if (tab === 'home') {
       window.history.pushState(null, '', '/');
     } else {
-      window.history.pushState(null, '', `#${tab}`);
+      window.history.pushState(null, '', `/${tab}`);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Dedicated full-screen authentication views
+  if (activeTab === 'login') {
+    return (
+      <LoginPage
+        onNavigate={handleNavigate}
+      />
+    );
+  }
+
+  if (activeTab === 'signup') {
+    return (
+      <SignupPage
+        onNavigate={handleNavigate}
+      />
+    );
+  }
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
@@ -159,7 +222,7 @@ export default function App() {
         <Phone size={22} />
       </button>
 
-      {/* Cal.com Demo Booking Modal */}
+      {/* Native Interactive Enterprise Booking Modal */}
       <BookingModal
         isOpen={isBookingModalOpen}
         onClose={handleCloseBooking}

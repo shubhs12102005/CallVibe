@@ -16,23 +16,7 @@ export default function Header({ activeTab, setActiveTab, onOpenBooking, isScrol
   const handleNavClick = (id) => {
     setActiveTab(id);
     setMobileMenuOpen(false);
-
-    if (id === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      const section = document.getElementById(id);
-      if (section) {
-        const offset = 90;
-        const bodyRect = document.body.getBoundingClientRect().top;
-        const elementRect = section.getBoundingClientRect().top;
-        const elementPosition = elementRect - bodyRect;
-        const offsetPosition = elementPosition - offset;
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -43,6 +27,7 @@ export default function Header({ activeTab, setActiveTab, onOpenBooking, isScrol
           <div 
             onClick={() => handleNavClick('home')} 
             style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+            title="CallVibe Home"
           >
             <img 
               src="/images/CallVibe-Logo@2x.webp" 
@@ -88,25 +73,21 @@ export default function Header({ activeTab, setActiveTab, onOpenBooking, isScrol
 
           {/* Desktop CTAs */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }} className="desktop-ctas">
-            <a
-              href="https://app.callvibe.ai/login"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => handleNavClick('login')}
               className="btn btn-ghost-dark"
               style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
             >
               <span>Login</span>
               <ArrowUpRight size={16} />
-            </a>
+            </button>
 
-            <a
-              href="https://app.callvibe.ai/signup"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => handleNavClick('signup')}
               className="btn btn-primary"
             >
               Start Free Trial
-            </a>
+            </button>
 
             <button
               onClick={onOpenBooking}
@@ -166,31 +147,27 @@ export default function Header({ activeTab, setActiveTab, onOpenBooking, isScrol
             ))}
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '8px' }}>
-              <a
-                href="https://app.callvibe.ai/login"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => handleNavClick('login')}
                 className="btn btn-outline"
-                style={{ width: '100%' }}
+                style={{ width: '100%', justifyContent: 'center' }}
               >
                 Login <ArrowUpRight size={16} />
-              </a>
-              <a
-                href="https://app.callvibe.ai/signup"
-                target="_blank"
-                rel="noopener noreferrer"
+              </button>
+              <button
+                onClick={() => handleNavClick('signup')}
                 className="btn btn-primary"
-                style={{ width: '100%' }}
+                style={{ width: '100%', justifyContent: 'center' }}
               >
                 Start Free Trial
-              </a>
+              </button>
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenBooking();
                 }}
                 className="btn btn-dark"
-                style={{ width: '100%' }}
+                style={{ width: '100%', justifyContent: 'center' }}
               >
                 Get in Touch <MessageSquare size={16} />
               </button>
