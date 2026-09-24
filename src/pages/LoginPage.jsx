@@ -261,7 +261,9 @@ export default function LoginPage({ onNavigate }) {
         <div style={{ textAlign: 'center', marginTop: '36px', fontSize: '13px', color: '#64748B' }}>
           <div>
             Having trouble signing in?{' '}
-            <span style={{ color: '#2264F6', fontWeight: '600' }}>info@callvibe.ai</span>
+            <a href="mailto:manoj@silgatehiring.com" style={{ color: '#2264F6', fontWeight: '600', textDecoration: 'none' }}>manoj@silgatehiring.com</a>
+            {' '}&bull;{' '}
+            <a href="tel:+918108810916" style={{ color: '#2264F6', fontWeight: '600', textDecoration: 'none' }}>+91 81088 10916</a>
           </div>
           <div style={{ marginTop: '6px', color: '#94A3B8' }}>
             © 2024 Call Vibe. All rights reserved.

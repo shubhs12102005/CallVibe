@@ -38,16 +38,19 @@ export default function Footer({ onOpenBooking, onNavigate }) {
                 paddingLeft: '16px',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '12px',
+                gap: '10px',
                 marginBottom: '24px',
               }}
             >
               <div style={{ fontSize: '14px', color: '#334155' }}>
-                Contact us at <strong style={{ color: '#0F172A' }}>info@callvibe.ai</strong>
+                Email: <a href="mailto:manoj@silgatehiring.com" style={{ color: '#0F172A', fontWeight: '700', textDecoration: 'none' }}>manoj@silgatehiring.com</a>
+              </div>
+              <div style={{ fontSize: '14px', color: '#334155' }}>
+                Phone: <a href="tel:+918108810916" style={{ color: '#0F172A', fontWeight: '700', textDecoration: 'none' }}>+91 81088 10916</a>
               </div>
               <div style={{ fontSize: '13px', color: '#64748B', lineHeight: 1.5 }}>
-                22, Sin Ming Lane #06-76, Midview City<br />
-                Singapore 573969
+                Road No 8, SG Barve RD, Wagle Estate, Padwal Nagar<br />
+                Thane West, Maharashtra 400604
               </div>
             </div>
 

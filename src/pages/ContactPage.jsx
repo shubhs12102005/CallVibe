@@ -19,7 +19,7 @@ import CtaBanner from '../components/CtaBanner';
  * - Light hero with "Get in Touch" headline and "Send Us a Message" CTA
  * - 3 Contact info cards (Call Us, Visit Our Office, Email Us)
  * - Office details section with hours, address, and email
- * - Embedded responsive Google Map of Midview City Singapore
+ * - Embedded responsive Google Map of Wagle Estate, Thane West
  * - Interactive direct inquiry message modal
  * - Bottom CTA banner
  */
@@ -155,7 +155,7 @@ export default function ContactPage({ onOpenBooking }) {
                 Mon to Fri (9am – 6pm).
               </p>
               <a
-                href="tel:+6568160011"
+                href="tel:+918108810916"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -180,7 +180,7 @@ export default function ContactPage({ onOpenBooking }) {
                 }}
               >
                 <Phone size={14} color="#2264F6" />
-                <span>+65 6816 0011</span>
+                <span>+91 81088 10916</span>
               </a>
             </div>
 
@@ -222,7 +222,7 @@ export default function ContactPage({ onOpenBooking }) {
                 Visit Our Office
               </h3>
               <p style={{ fontSize: '14px', color: '#64748B', lineHeight: 1.5, marginBottom: '24px' }}>
-                22, Sin Ming Lane #06-76, Midview City Singapore 573969
+                Road No 8, SG Barve RD, Wagle Estate, Padwal Nagar, Thane West, Maharashtra 400604
               </p>
               <button
                 onClick={scrollToMap}
@@ -296,7 +296,7 @@ export default function ContactPage({ onOpenBooking }) {
                 Get reply within 24 hours.
               </p>
               <a
-                href="mailto:info@callvibe.ai"
+                href="mailto:manoj@silgatehiring.com"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -321,7 +321,7 @@ export default function ContactPage({ onOpenBooking }) {
                 }}
               >
                 <Send size={14} color="#2264F6" />
-                <span>info@callvibe.ai</span>
+                <span>manoj@silgatehiring.com</span>
               </a>
             </div>
           </div>
@@ -386,13 +386,20 @@ export default function ContactPage({ onOpenBooking }) {
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '15px', color: '#1E293B', fontWeight: '600' }}>
                 <MapPin size={20} color="#2264F6" />
-                <span>22, Sin Ming Lane #06-76, Midview City Singapore 573969</span>
+                <span>Road No 8, SG Barve RD, Wagle Estate, Padwal Nagar, Thane West, Maharashtra 400604</span>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '15px', color: '#1E293B', fontWeight: '600' }}>
+                <Phone size={20} color="#2264F6" />
+                <a href="tel:+918108810916" style={{ color: '#2264F6' }}>
+                  +91 81088 10916
+                </a>
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '15px', color: '#1E293B', fontWeight: '600' }}>
                 <Mail size={20} color="#2264F6" />
-                <a href="mailto:info@callvibe.ai" style={{ color: '#2264F6' }}>
-                  info@callvibe.ai
+                <a href="mailto:manoj@silgatehiring.com" style={{ color: '#2264F6' }}>
+                  manoj@silgatehiring.com
                 </a>
               </div>
             </div>
@@ -403,8 +410,8 @@ export default function ContactPage({ onOpenBooking }) {
       {/* 4. Full-Width Interactive Google Map */}
       <section id="office-map" style={{ width: '100%', height: '460px', borderTop: '1px solid #E2E8F0', borderBottom: '1px solid #E2E8F0' }}>
         <iframe
-          title="CallVibe Singapore Office Location"
-          src="https://maps.google.com/maps?q=Midview%20City%20Singapore&t=&z=14&ie=UTF8&iwloc=&output=embed"
+          title="CallVibe Office Location - Wagle Estate, Thane West"
+          src="https://maps.google.com/maps?q=Road%20No%208%2C%20SG%20Barve%20RD%2C%20Wagle%20Estate%2C%20Padwal%20Nagar%2C%20Thane%20West%2C%20Maharashtra%20400604&t=&z=15&ie=UTF8&iwloc=&output=embed"
           width="100%"
           height="100%"
           style={{ border: 0, display: 'block' }}

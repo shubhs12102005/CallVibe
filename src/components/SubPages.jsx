@@ -73,23 +73,32 @@ export default function SubPages({ currentTab, onBack, onOpenBooking }) {
               Whether you are an enterprise revenue leader seeking custom telephony integrations or looking for a trial deployment, our team is ready.
             </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px', marginBottom: '40px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px', marginBottom: '40px' }}>
+              <div style={{ padding: '28px', backgroundColor: '#F8FAFC', borderRadius: '16px', border: '1px solid #E2E8F0' }}>
+                <Phone size={24} color="#2264F6" style={{ marginBottom: '14px' }} />
+                <h4 style={{ fontSize: '17px', fontWeight: '700', color: '#0F172A', marginBottom: '6px' }}>Call Us</h4>
+                <p style={{ fontSize: '14px', color: '#64748B', marginBottom: '12px' }}>Mon to Fri (9am – 6pm)</p>
+                <a href="tel:+918108810916" style={{ fontSize: '15px', fontWeight: '700', color: '#2264F6' }}>
+                  +91 81088 10916
+                </a>
+              </div>
+
               <div style={{ padding: '28px', backgroundColor: '#F8FAFC', borderRadius: '16px', border: '1px solid #E2E8F0' }}>
                 <Mail size={24} color="#2264F6" style={{ marginBottom: '14px' }} />
                 <h4 style={{ fontSize: '17px', fontWeight: '700', color: '#0F172A', marginBottom: '6px' }}>Email Us</h4>
                 <p style={{ fontSize: '14px', color: '#64748B', marginBottom: '12px' }}>Direct inquiries and sales support</p>
-                <a href="mailto:info@callvibe.ai" style={{ fontSize: '15px', fontWeight: '700', color: '#2264F6' }}>
-                  info@callvibe.ai
+                <a href="mailto:manoj@silgatehiring.com" style={{ fontSize: '15px', fontWeight: '700', color: '#2264F6' }}>
+                  manoj@silgatehiring.com
                 </a>
               </div>
 
               <div style={{ padding: '28px', backgroundColor: '#F8FAFC', borderRadius: '16px', border: '1px solid #E2E8F0' }}>
                 <MapPin size={24} color="#2264F6" style={{ marginBottom: '14px' }} />
                 <h4 style={{ fontSize: '17px', fontWeight: '700', color: '#0F172A', marginBottom: '6px' }}>Global Headquarters</h4>
-                <p style={{ fontSize: '14px', color: '#475569', lineHeight: 1.5 }}>
-                  22, Sin Ming Lane #06-76<br />
-                  Midview City, Singapore 573969
-                </p>
+                <div style={{ fontSize: '13px', color: '#64748B', lineHeight: 1.5 }}>
+                  Road No 8, SG Barve RD, Wagle Estate, Padwal Nagar<br />
+                  Thane West, Maharashtra 400604
+                </div>
               </div>
             </div>
 
@@ -190,7 +199,7 @@ export default function SubPages({ currentTab, onBack, onOpenBooking }) {
               {currentTab === 'terms' ? 'Terms of Service' : 'Privacy & Data Protection Policy'}
             </h1>
             <p style={{ fontSize: '14px', color: '#94A3B8', marginBottom: '28px' }}>
-              Last updated: September 2026 • Midview City Singapore
+              Last updated: September 2026 • Thane West, Maharashtra 400604
             </p>
             <div style={{ fontSize: '15px', lineHeight: 1.7, color: '#475569', display: 'flex', flexDirection: 'column', gap: '18px' }}>
               <p>
@@ -200,7 +209,7 @@ export default function SubPages({ currentTab, onBack, onOpenBooking }) {
                 Customer call recordings and transcripts are encrypted in transit using TLS 1.3 and at rest via AES-256. Customers retain full ownership and governance over all conversation telemetry, audio streams, and synthesized deal reports.
               </p>
               <p>
-                For questions regarding data processing addendums (DPA) or compliance agreements, contact our privacy office at <strong>info@callvibe.ai</strong>.
+                For questions regarding data processing addendums (DPA) or compliance agreements, contact our privacy office at <strong>manoj@silgatehiring.com</strong>.
               </p>
             </div>
           </div>
