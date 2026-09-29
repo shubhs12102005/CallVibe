@@ -30,7 +30,7 @@ export default function Header({ activeTab, setActiveTab, onOpenBooking, isScrol
             title="CallVibe Home"
           >
             <img 
-              src="/images/silgate-logo.jpeg" 
+              src="/images/silgate-logo-latest.png" 
               alt="Silgate Logo" 
               style={{ height: '32px', width: 'auto', display: 'block' }} 
             />

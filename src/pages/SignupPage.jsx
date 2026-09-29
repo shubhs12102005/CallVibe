@@ -107,7 +107,7 @@ export default function SignupPage({ onNavigate }) {
           title="Return to CallVibe Homepage"
         >
           <img
-            src="/images/silgate-logo.jpeg"
+            src="/images/silgate-logo-latest.png"
             alt="Silgate Logo"
             style={{ height: '28px', width: 'auto' }}
           />
@@ -144,7 +144,7 @@ export default function SignupPage({ onNavigate }) {
                 style={{ display: 'inline-flex', alignItems: 'center', marginBottom: '32px', cursor: 'pointer' }}
               >
                 <img
-                  src="/images/silgate-logo.jpeg"
+                  src="/images/silgate-logo-latest.png"
                   alt="Silgate Logo"
                   style={{ height: '30px', width: 'auto' }}
                 />

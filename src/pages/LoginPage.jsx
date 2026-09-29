@@ -60,7 +60,7 @@ export default function LoginPage({ onNavigate }) {
           title="Return to CallVibe Homepage"
         >
           <img
-            src="/images/silgate-logo.jpeg"
+            src="/images/silgate-logo-latest.png"
             alt="Silgate Logo"
             style={{ height: '28px', width: 'auto' }}
           />
@@ -85,7 +85,7 @@ export default function LoginPage({ onNavigate }) {
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <div className="">
             <img
-              src="/images/silgate-logo.jpeg"
+              src="/images/silgate-logo-latest.png"
               alt="Silgate Logo"
               style={{ height: '28px', width: 'auto' }}
             />
