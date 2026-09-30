@@ -16,14 +16,14 @@ export default function Footer({ onOpenBooking, onNavigate }) {
         >
           {/* Col 1: Brand & Contact */}
           <div>
-            <div 
-              onClick={() => onNavigate('home')} 
+            <div
+              onClick={() => onNavigate('home')}
               style={{ display: 'inline-flex', alignItems: 'center', marginBottom: '16px', cursor: 'pointer' }}
-              title="CallVibe Home"
+              title="Silgate Solutions Home"
             >
               <img
                 src="/images/silgate-logo-latest.png"
-                alt="Silgate Logo"
+                alt="Silgate Solutions Logo"
                 style={{ height: '32px', width: 'auto' }}
               />
             </div>
@@ -80,6 +80,14 @@ export default function Footer({ onOpenBooking, onNavigate }) {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <button
+                onClick={() => onNavigate('about')}
+                style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', color: '#1E293B', transition: 'color 0.2s' }}
+                onMouseEnter={(e) => (e.target.style.color = '#2264F6')}
+                onMouseLeave={(e) => (e.target.style.color = '#1E293B')}
+              >
+                About
+              </button>
+              <button
                 onClick={() => onNavigate('features')}
                 style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', color: '#1E293B', transition: 'color 0.2s' }}
                 onMouseEnter={(e) => (e.target.style.color = '#2264F6')}
@@ -87,29 +95,29 @@ export default function Footer({ onOpenBooking, onNavigate }) {
               >
                 Features
               </button>
-              <button
+              {/* <button
                 onClick={() => onNavigate('integrations')}
                 style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', color: '#1E293B', transition: 'color 0.2s' }}
                 onMouseEnter={(e) => (e.target.style.color = '#2264F6')}
                 onMouseLeave={(e) => (e.target.style.color = '#1E293B')}
               >
                 Integrations
-              </button>
-              <button
+              </button> */}
+              {/* <button
                 onClick={() => onNavigate('blog')}
                 style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', color: '#1E293B', transition: 'color 0.2s' }}
                 onMouseEnter={(e) => (e.target.style.color = '#2264F6')}
                 onMouseLeave={(e) => (e.target.style.color = '#1E293B')}
               >
                 Blog & Insights
-              </button>
+              </button> */}
               <button
-                onClick={() => onNavigate('about')}
+                onClick={() => onNavigate('contact')}
                 style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', color: '#1E293B', transition: 'color 0.2s' }}
                 onMouseEnter={(e) => (e.target.style.color = '#2264F6')}
                 onMouseLeave={(e) => (e.target.style.color = '#1E293B')}
               >
-                About Us
+                Contact
               </button>
             </div>
           </div>
@@ -120,7 +128,7 @@ export default function Footer({ onOpenBooking, onNavigate }) {
               Account & Legal
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <button
+              {/* <button
                 onClick={() => onNavigate('login')}
                 style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', color: '#2264F6', transition: 'color 0.2s' }}
                 onMouseEnter={(e) => (e.target.style.color = '#1D4ED8')}
@@ -135,15 +143,8 @@ export default function Footer({ onOpenBooking, onNavigate }) {
                 onMouseLeave={(e) => (e.target.style.color = '#1E293B')}
               >
                 Start Free Trial
-              </button>
-              <button
-                onClick={() => onNavigate('contact')}
-                style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', color: '#1E293B', transition: 'color 0.2s' }}
-                onMouseEnter={(e) => (e.target.style.color = '#2264F6')}
-                onMouseLeave={(e) => (e.target.style.color = '#1E293B')}
-              >
-                Contact
-              </button>
+              </button> */}
+
               <button
                 onClick={() => onNavigate('reviews')}
                 style={{ textAlign: 'left', fontSize: '15px', fontWeight: '600', color: '#1E293B', transition: 'color 0.2s' }}
@@ -301,7 +302,7 @@ export default function Footer({ onOpenBooking, onNavigate }) {
             color: '#64748B',
           }}
         >
-          CallVibe © All rights reserved
+          Silgate Solutions © All rights reserved
         </div>
       </div>
 

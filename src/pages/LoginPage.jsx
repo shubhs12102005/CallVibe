@@ -4,9 +4,9 @@ import { Eye, EyeOff, Lock, Mail, ArrowRight, CheckCircle2, AlertCircle, X } fro
 /**
  * LoginPage Component
  * 
- * Recreates the authentic CallVibe application sign-in experience:
+ * Silgate Solutions application sign-in experience:
  * - Floating top header pill with brand logo and "Start Free Trial" CTA
- * - Central CallVibe gradient soundwave badge & title
+ * - Central Silgate logo badge & title
  * - Secure credentials form with show/hide password toggle
  * - Interactive "Forgot password" modal drawer
  * - Complete independence with zero external redirection
@@ -57,11 +57,11 @@ export default function LoginPage({ onNavigate }) {
         <div
           onClick={() => onNavigate('home')}
           style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}
-          title="Return to CallVibe Homepage"
+          title="Return to Silgate Solutions Homepage"
         >
           <img
             src="/images/silgate-logo-latest.png"
-            alt="Silgate Logo"
+            alt="Silgate Solutions Logo"
             style={{ height: '28px', width: 'auto' }}
           />
         </div>
@@ -81,17 +81,17 @@ export default function LoginPage({ onNavigate }) {
 
       {/* Main Centered Authentication Section */}
       <main style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '40px 20px' }}>
-        {/* CallVibe App Soundwave Badge & Title */}
+        {/* Silgate App Logo & Title */}
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <div className="">
             <img
               src="/images/silgate-logo-latest.png"
-              alt="Silgate Logo"
-              style={{ height: '28px', width: 'auto' }}
+              alt="Silgate Solutions Logo"
+              style={{ height: '36px', width: 'auto', margin: '0 auto 12px' }}
             />
           </div>
           <h1 style={{ fontSize: '26px', fontWeight: '800', color: '#0F172A', letterSpacing: '-0.02em', marginBottom: '4px' }}>
-            CallVibe
+            Silgate Solutions
           </h1>
           <p style={{ fontSize: '15px', color: '#64748B' }}>
             Sign in to your dashboard
@@ -146,7 +146,7 @@ export default function LoginPage({ onNavigate }) {
                 Authentication Successful
               </h3>
               <p style={{ fontSize: '14px', color: '#047857', marginBottom: '18px' }}>
-                Welcome to your CallVibe workspace.
+                Welcome to your Silgate workspace.
               </p>
               <button
                 onClick={() => onNavigate('home')}
@@ -266,7 +266,7 @@ export default function LoginPage({ onNavigate }) {
             <a href="tel:+918108810916" style={{ color: '#2264F6', fontWeight: '600', textDecoration: 'none' }}>+91 81088 10916</a>
           </div>
           <div style={{ marginTop: '6px', color: '#94A3B8' }}>
-            © 2024 Call Vibe. All rights reserved.
+            © {new Date().getFullYear()} Silgate Solutions. All rights reserved.
           </div>
         </div>
       </main>

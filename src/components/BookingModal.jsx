@@ -115,7 +115,7 @@ export default function BookingModal({ isOpen, onClose }) {
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <CalendarIcon size={20} color="#38BDF8" />
             <h3 style={{ fontSize: '17px', fontWeight: '700', margin: 0 }}>
-              Schedule CallVibe Enterprise Demo
+              Schedule Silgate Enterprise Demo
             </h3>
           </div>
 
@@ -204,7 +204,7 @@ export default function BookingModal({ isOpen, onClose }) {
                       30 Min Product Walkthrough
                     </h4>
                     <p style={{ fontSize: '13px', color: '#64748B', lineHeight: 1.5, marginBottom: '20px' }}>
-                      See how CallVibe analyzes 100% of sales calls and integrates with your CRM in under 15 minutes.
+                      See how Silgate analyzes 100% of sales calls and integrates with your CRM in under 15 minutes.
                     </p>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: '#475569' }}>

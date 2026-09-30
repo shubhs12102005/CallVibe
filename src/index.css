@@ -1,4 +1,4 @@
-/* CallVibe Design System & Global Styles */
+/* Silgate Solutions Design System & Global Styles */
 :root {
   --primary-blue: #2264F6;
   --primary-blue-dark: #1A50C7;
@@ -391,7 +391,7 @@ button {
 }
 
 /* ==========================================================================
-   Authentication Pages Styles (Login & Signup) - CallVibe App Parity
+   Authentication Pages Styles (Login & Signup) - Silgate Solutions App Parity
    ========================================================================== */
 
 /* Fullscreen Ambient Background with Radial Aura */
@@ -439,8 +439,8 @@ button {
   }
 }
 
-/* CallVibe Soundwave Gradient Logo Badge */
-.callvibe-soundwave-badge {
+/* Silgate Logo Badge */
+.silgate-soundwave-badge {
   width: 60px;
   height: 60px;
   border-radius: 18px;
@@ -454,7 +454,7 @@ button {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.callvibe-soundwave-badge:hover {
+.silgate-soundwave-badge:hover {
   transform: scale(1.06) rotate(2deg);
 }
 

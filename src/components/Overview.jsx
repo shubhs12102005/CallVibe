@@ -49,7 +49,7 @@ export default function Overview() {
               maxWidth: '820px',
             }}
           >
-            Powered by advanced AI and machine learning, CallVibe delivers conversation analytics, sales insights, and automated call intelligence to help teams identify buying signals, improve follow-ups, and increase win rates.
+            Powered by advanced AI and machine learning, Silgate Solutions delivers conversation analytics, sales insights, and automated call intelligence to help teams identify buying signals, improve follow-ups, and increase win rates.
           </p>
         </div>
       </div>

@@ -4,7 +4,7 @@ import { Play, Pause, RotateCcw, Volume2, Sparkles, CheckCircle2, AlertCircle, T
 const mockTranscript = [
   { time: '00:02', speaker: 'Sales Rep (Alex)', text: 'Thanks for hopping on today, Sarah! How has your current SDR call qualification been performing?', sentiment: 'Neutral' },
   { time: '00:08', speaker: 'Prospect (Sarah)', text: 'Honestly, reps are losing 3 hours a day manually logging summaries into Salesforce and missing key buying signals.', sentiment: 'Frustrated' },
-  { time: '00:16', speaker: 'Sales Rep (Alex)', text: 'CallVibe automates 100% of CRM entry, transcribes every conversation, and highlights objections instantly.', sentiment: 'Helpful' },
+  { time: '00:16', speaker: 'Sales Rep (Alex)', text: 'Silgate automates 100% of CRM entry, transcribes every conversation, and highlights objections instantly.', sentiment: 'Helpful' },
   { time: '00:23', speaker: 'Prospect (Sarah)', text: 'That would be a game-changer for our 45-person sales floor. How fast does the telephony integration set up?', sentiment: 'Positive' },
   { time: '00:30', speaker: 'Sales Rep (Alex)', text: 'It connects in under 10 minutes with Zoom Phone, Zadarma, or RingCentral via zero-code webhooks.', sentiment: 'Enthusiastic' },
   { time: '00:37', speaker: 'Prospect (Sarah)', text: 'Awesome, let’s get a pilot arranged for our enterprise team next Tuesday!', sentiment: 'High Intent' },
@@ -47,7 +47,7 @@ export default function InteractiveDemo() {
             <span>Interactive AI Sandbox</span>
           </span>
           <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: '800', color: '#0F172A', letterSpacing: '-0.02em', marginBottom: '16px' }}>
-            Experience CallVibe Intelligence In Action
+            Experience Silgate Intelligence In Action
           </h2>
           <p style={{ fontSize: '16px', color: '#64748B' }}>
             Watch real-time voice transcription, emotional sentiment telemetry, and automatic next-step extraction.

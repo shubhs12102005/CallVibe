@@ -54,7 +54,7 @@ export default function Integrations() {
               margin: '0 auto',
             }}
           >
-            Use CallVibe’s built-in CRM and pipeline out of the box, or integrate effortlessly with your current telephony, messaging, and CRM tools to bring complete AI visibility to every deal.
+            Use Silgate’s built-in CRM and pipeline out of the box, or integrate effortlessly with your current telephony, messaging, and CRM tools to bring complete AI visibility to every deal.
           </p>
         </div>
 

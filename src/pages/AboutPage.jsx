@@ -28,7 +28,7 @@ const partners = [
 /**
  * AboutPage Component
  * 
- * Faithfully matches the real CallVibe About page:
+ * About Silgate Solutions - Company overview, mission, and leadership:
  * - Clean light hero with headline, social proof avatars, and rating
  * - Dual-card product recap and detail showcase
  * - Metrics bar with animated statistics (94%+, 3x, 80%)
@@ -41,7 +41,7 @@ export default function AboutPage({ onOpenBooking }) {
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#FFFFFF', overflowX: 'hidden' }}>
-      {/* 1. Hero Section (Light Background matching original CallVibe) */}
+      {/* 1. Hero Section (Light Background) */}
       <section
         style={{
           paddingTop: '160px',
@@ -55,7 +55,7 @@ export default function AboutPage({ onOpenBooking }) {
           <div style={{ maxWidth: '860px', margin: '0 auto' }}>
             {/* Sliding Headline */}
             <SlidingHeadline
-              text="About CallVibe - AI Conversation Intelligence for Sales Teams"
+              text="About Silgate Solutions - AI Conversation Intelligence for Sales Teams"
               staggerMs={70}
               style={{
                 fontSize: 'clamp(32px, 4.4vw, 54px)',
@@ -77,7 +77,7 @@ export default function AboutPage({ onOpenBooking }) {
                 margin: '0 auto 36px',
               }}
             >
-              At CallVibe, we believe every sales conversation holds untapped revenue potential. Our AI-powered conversation intelligence platform captures hidden insights, buying signals, and customer intent—turning everyday sales calls into measurable revenue growth and actionable sales intelligence.
+              At Silgate Solutions, we believe every sales conversation holds untapped revenue potential. Our AI-powered conversation intelligence platform captures hidden insights, buying signals, and customer intent—turning everyday sales calls into measurable revenue growth and actionable sales intelligence.
             </p>
 
             {/* Avatars, CTA button, and Star Rating Row */}
@@ -299,7 +299,7 @@ export default function AboutPage({ onOpenBooking }) {
         </div>
       </section>
 
-      {/* 3. Metrics Bar Section (Exact copy of CallVibe About page) */}
+      {/* 3. Metrics Bar Section */}
       <section style={{ backgroundColor: '#F1F5F9', borderTop: '1px solid #E2E8F0', borderBottom: '1px solid #E2E8F0', padding: '70px 0' }}>
         <div className="container">
           <div
@@ -409,7 +409,7 @@ export default function AboutPage({ onOpenBooking }) {
                 marginBottom: '28px',
               }}
             >
-              “CallVibe turned our sales calls into real revenue insights. We close faster and follow up smarter.”
+              “Silgate turned our sales calls into real revenue insights. We close faster and follow up smarter.”
             </blockquote>
 
             {/* Author */}
@@ -452,7 +452,7 @@ export default function AboutPage({ onOpenBooking }) {
                 marginBottom: '36px',
               }}
             >
-              With a team of AI specialists, data scientists, and sales tech experts, CallVibe delivers conversation intelligence, call analytics, and AI-powered insights to improve coaching, capture buying signals, and boost conversions.
+              With a team of AI specialists, data scientists, and sales tech experts, Silgate Solutions delivers conversation intelligence, call analytics, and AI-powered insights to improve coaching, capture buying signals, and boost conversions.
             </h2>
             <p
               style={{
@@ -462,7 +462,7 @@ export default function AboutPage({ onOpenBooking }) {
                 maxWidth: '900px',
               }}
             >
-              CallVibe was built on innovation, trust, and a mission to help businesses unlock the full value of every conversation. From our first customer to a growing global user base, we continue to empower sales teams with AI-driven insights that turn conversations into predictable revenue growth.
+              Silgate Solutions was built on innovation, trust, and a mission to help businesses unlock the full value of every conversation. From our first customer to a growing global user base, we continue to empower sales teams with AI-driven insights that turn conversations into predictable revenue growth.
             </p>
           </div>
         </div>
@@ -514,7 +514,7 @@ export default function AboutPage({ onOpenBooking }) {
               margin: '0 auto 32px',
             }}
           >
-            Connect CallVibe with your existing CRM systems, cloud telephony platforms, and sales tools. Our AI conversation intelligence software integrates seamlessly to centralize call data, automate workflows, and improve pipeline visibility.
+            Connect Silgate Solutions with your existing CRM systems, cloud telephony platforms, and sales tools. Our AI conversation intelligence software integrates seamlessly to centralize call data, automate workflows, and improve pipeline visibility.
           </p>
 
           {/* Consultation Button */}

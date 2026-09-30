@@ -15,7 +15,7 @@ import CtaBanner from '../components/CtaBanner';
 /**
  * ContactPage Component
  * 
- * Recreates the exact CallVibe Contact page:
+ * Silgate Solutions Contact Page:
  * - Light hero with "Get in Touch" headline and "Send Us a Message" CTA
  * - 3 Contact info cards (Call Us, Visit Our Office, Email Us)
  * - Office details section with hours, address, and email
@@ -48,7 +48,7 @@ export default function ContactPage({ onOpenBooking }) {
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#FFFFFF', overflowX: 'hidden' }}>
-      {/* 1. Hero Section (Light, matching original CallVibe) */}
+      {/* 1. Hero Section (Light) */}
       <section
         style={{
           paddingTop: '160px',
@@ -343,7 +343,7 @@ export default function ContactPage({ onOpenBooking }) {
             {/* Left Column */}
             <div>
               <div style={{ fontSize: '13px', fontWeight: '700', color: '#2264F6', letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: '12px' }}>
-                CallVibe Information
+                Silgate Solutions Information
               </div>
               <h2
                 style={{
@@ -410,7 +410,7 @@ export default function ContactPage({ onOpenBooking }) {
       {/* 4. Full-Width Interactive Google Map */}
       <section id="office-map" style={{ width: '100%', height: '460px', borderTop: '1px solid #E2E8F0', borderBottom: '1px solid #E2E8F0' }}>
         <iframe
-          title="CallVibe Office Location - Wagle Estate, Thane West"
+          title="Silgate Solutions Office Location - Wagle Estate, Thane West"
           src="https://maps.google.com/maps?q=Road%20No%208%2C%20SG%20Barve%20RD%2C%20Wagle%20Estate%2C%20Padwal%20Nagar%2C%20Thane%20West%2C%20Maharashtra%20400604&t=&z=15&ie=UTF8&iwloc=&output=embed"
           width="100%"
           height="100%"
@@ -436,7 +436,7 @@ export default function ContactPage({ onOpenBooking }) {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <MessageSquare size={20} color="#2264F6" />
                 <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#0F172A', margin: 0 }}>
-                  Send a Message to CallVibe
+                  Send a Message to Silgate Solutions
                 </h3>
               </div>
               <button onClick={() => setIsMessageModalOpen(false)} style={{ color: '#94A3B8', padding: '4px' }}>
@@ -451,7 +451,7 @@ export default function ContactPage({ onOpenBooking }) {
                   Message Dispatched!
                 </h4>
                 <p style={{ fontSize: '14px', color: '#64748B', marginBottom: '24px' }}>
-                  Thank you for reaching out. A CallVibe representative will reply within 24 hours.
+                  Thank you for reaching out. A Silgate representative will reply within 24 hours.
                 </p>
                 <button onClick={() => setIsMessageModalOpen(false)} className="btn btn-primary" style={{ width: '100%' }}>
                   Close

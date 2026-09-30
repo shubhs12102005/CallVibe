@@ -27,11 +27,11 @@ export default function Header({ activeTab, setActiveTab, onOpenBooking, isScrol
           <div 
             onClick={() => handleNavClick('home')} 
             style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
-            title="CallVibe Home"
+            title="Silgate Solutions Home"
           >
             <img 
               src="/images/silgate-logo-latest.png" 
-              alt="Silgate Logo" 
+              alt="Silgate Solutions Logo" 
               style={{ height: '32px', width: 'auto', display: 'block' }} 
             />
           </div>

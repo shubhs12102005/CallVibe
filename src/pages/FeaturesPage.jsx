@@ -73,7 +73,7 @@ export default function FeaturesPage({ onOpenBooking }) {
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#FFFFFF' }}>
-      {/* Hero Section (Light, matching original CallVibe) */}
+      {/* Hero Section (Light) */}
       <section
         style={{
           paddingTop: '160px',

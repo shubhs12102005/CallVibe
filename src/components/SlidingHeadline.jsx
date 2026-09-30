@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 /**
- * Replicates CallVibe's elementor-widget-pix-sliding-text.
+ * Animated sliding headline component with staggered upward reveal.
  * Each word is wrapped in an overflow-hidden container and translates up
  * with a staggered delay (0ms, 75ms, 150ms, etc.) when mounted or scrolled into view.
  */

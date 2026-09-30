@@ -21,7 +21,7 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 
 /**
- * CallVibe Application Router
+ * Silgate Solutions Application Router
  * 
  * Provides clean path-based URL routing (e.g. /features, /integration, /login, /signup)
  * completely eliminating hash anchors (#) and external redirects.
@@ -90,6 +90,24 @@ export default function App() {
       window.removeEventListener('popstate', handlePopState);
     };
   }, []);
+
+  // Synchronize document title with current page
+  useEffect(() => {
+    const titles = {
+      home: 'Silgate Solutions | AI Conversation Intelligence Platform',
+      features: 'Silgate Solutions | Features & Voice AI Capabilities',
+      integrations: 'Silgate Solutions | Integrations & Telephony Connectors',
+      blog: 'Silgate Solutions | Insights & Blog',
+      about: 'Silgate Solutions | About Us',
+      contact: 'Silgate Solutions | Contact Sales & Support',
+      login: 'Silgate Solutions | Sign In',
+      signup: 'Silgate Solutions | Get Started',
+      reviews: 'Silgate Solutions | Customer Reviews',
+      terms: 'Silgate Solutions | Terms of Service',
+      privacy: 'Silgate Solutions | Privacy Policy',
+    };
+    document.title = titles[activeTab] || 'Silgate Solutions | AI Conversation Intelligence Platform';
+  }, [activeTab]);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -220,7 +238,7 @@ export default function App() {
         onClick={handleOpenBooking}
         className="call-launcher-btn"
         aria-label="Book a call or demo"
-        title="Book a call with CallVibe"
+        title="Book a call with Silgate Solutions"
       >
         <Phone size={22} />
       </button>

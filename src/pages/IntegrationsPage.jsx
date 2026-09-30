@@ -23,7 +23,7 @@ const categories = [
 
 const directoryItems = [
   // Telephony
-  { name: '8x8', category: 'telephony', logo: '/images/8x8.png', desc: 'Contact-center calls into CallVibe intelligence' },
+  { name: '8x8', category: 'telephony', logo: '/images/8x8.png', desc: 'Contact-center calls into Silgate intelligence' },
   { name: 'Bonvoice', category: 'telephony', logo: '/images/bonvoice.webp', desc: 'Cloud telephony call ingestion & tracking' },
   { name: 'Callyzer', category: 'telephony', logo: '/images/Callyzer.webp', desc: 'Field-sales call tracking + analytics' },
   { name: 'Exotel', category: 'telephony', logo: '/images/exotel.webp', desc: 'Cloud telephony call recording & analytics' },
@@ -55,7 +55,7 @@ export default function IntegrationsPage({ onOpenBooking }) {
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#FFFFFF' }}>
-      {/* Hero Section (Light, matching original CallVibe) */}
+      {/* Hero Section (Light) */}
       <section
         style={{
           paddingTop: '160px',
@@ -69,7 +69,7 @@ export default function IntegrationsPage({ onOpenBooking }) {
         <div className="container">
           <div style={{ maxWidth: '840px', margin: '0 auto 40px' }}>
             <SlidingHeadline
-              text="Connect CallVibe with Your Entire Revenue Stack"
+              text="Connect Silgate with Your Entire Revenue Stack"
               staggerMs={70}
               style={{
                 fontSize: 'clamp(34px, 4.6vw, 54px)',
@@ -90,7 +90,7 @@ export default function IntegrationsPage({ onOpenBooking }) {
                 margin: '0 auto 36px',
               }}
             >
-              Seamlessly connect 14+ cloud telephony, CRM, and messaging platforms—or manage your entire pipeline with CallVibe's built-in CRM.
+              Seamlessly connect 14+ cloud telephony, CRM, and messaging platforms—or manage your entire pipeline with Silgate's built-in CRM.
             </p>
 
             {/* Circle Avatars + Explore Integrations Button */}
@@ -302,7 +302,7 @@ export default function IntegrationsPage({ onOpenBooking }) {
                 Bring WhatsApp into your revenue intelligence
               </h2>
               <p style={{ fontSize: '16px', color: '#4A5568', lineHeight: 1.68, marginBottom: '24px' }}>
-                CallVibe now analyzes WhatsApp sales conversations, not just calls. Auto-capture chats, detect intent and buying signals, surface action items, and keep the full customer history in one timeline — the same AI that scores your calls, now on your busiest messaging channel.
+                Silgate now analyzes WhatsApp sales conversations, not just calls. Auto-capture chats, detect intent and buying signals, surface action items, and keep the full customer history in one timeline — the same AI that scores your calls, now on your busiest messaging channel.
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -357,7 +357,7 @@ export default function IntegrationsPage({ onOpenBooking }) {
                 A CRM built for conversations — not the other way around
               </h2>
               <p style={{ fontSize: '16px', color: '#4A5568', lineHeight: 1.68, marginBottom: '24px' }}>
-                CallVibe isn't just an add-on to your CRM; it is one. Manage contacts and leads, drag deals through a visual pipeline, schedule and track follow-up calls, and generate pipeline reports — all tied to the AI insights from every conversation.
+                Silgate isn't just an add-on to your CRM; it is one. Manage contacts and leads, drag deals through a visual pipeline, schedule and track follow-up calls, and generate pipeline reports — all tied to the AI insights from every conversation.
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
@@ -396,7 +396,7 @@ export default function IntegrationsPage({ onOpenBooking }) {
                 Ask your calls anything
               </h2>
               <p style={{ fontSize: '16px', color: '#4A5568', lineHeight: 1.68, marginBottom: '24px' }}>
-                Skip the dashboards. Ask CallVibe a question in plain language and get instant, AI-generated answers across all conversations — top objections this week, why deals stalled, which reps need coaching. Insights on demand, no reports to build.
+                Skip the dashboards. Ask Silgate a question in plain language and get instant, AI-generated answers across all conversations — top objections this week, why deals stalled, which reps need coaching. Insights on demand, no reports to build.
               </p>
 
               <button onClick={onOpenBooking} className="btn btn-primary pix-hover-right">

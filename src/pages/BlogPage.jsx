@@ -34,7 +34,7 @@ const blogPosts = [
     excerpt: 'A deep-dive case study into how high-velocity real estate brokerage teams eliminate lead leakage and capture unsaid buyer preferences through conversational intelligence.',
     content: `High-value commercial and luxury residential transactions depend heavily on nuanced buyer cues. When agents conduct 15 to 25 calls a day, critical details like spouse requirements, contingent sales, and pre-approval nuances slip through manual notepad tracking.
     
-    By implementing CallVibe:
+    By implementing Silgate:
     - 100% of property touring objections were logged and categorized automatically.
     - AI-generated follow-up summaries drafted tailored property matching lists within 90 seconds of ending discovery calls.
     - Team win rate increased by 22% within 60 days of deployment.`,
@@ -84,7 +84,7 @@ export default function BlogPage({ onOpenBooking }) {
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#FFFFFF' }}>
-      {/* Hero (Light, matching original CallVibe) */}
+      {/* Hero (Light) */}
       <section
         style={{
           paddingTop: '160px',
@@ -98,7 +98,7 @@ export default function BlogPage({ onOpenBooking }) {
         <div className="container">
           <div style={{ maxWidth: '820px', margin: '0 auto' }}>
             <span className="badge-pill badge-blue-subtle" style={{ marginBottom: '16px' }}>
-              CallVibe Insights
+              Silgate Insights
             </span>
             <SlidingHeadline
               text="Latest Insights in Voice AI & Revenue Operations"

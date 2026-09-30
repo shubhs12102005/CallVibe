@@ -28,16 +28,16 @@ export default function SubPages({ currentTab, onBack, onOpenBooking }) {
         {currentTab === 'about' && (
           <div style={{ maxWidth: '840px' }}>
             <span className="badge-pill badge-blue-subtle" style={{ marginBottom: '16px' }}>
-              About CallVibe
+              About Silgate Solutions
             </span>
             <h1 style={{ fontSize: '42px', fontWeight: '800', color: '#0F172A', marginBottom: '24px', letterSpacing: '-0.02em' }}>
               Empowering sales teams with actionable conversation intelligence
             </h1>
             <p style={{ fontSize: '18px', lineHeight: 1.7, color: '#475569', marginBottom: '28px' }}>
-              CallVibe was founded with a clear mission: to eliminate the black box of voice sales calls. Every day, high-velocity revenue teams conduct thousands of sales conversations, yet less than 1% of the insights gained on those calls ever reach CRM systems or sales leadership.
+              Silgate Solutions was founded with a clear mission: to eliminate the black box of voice sales calls. Every day, high-velocity revenue teams conduct thousands of sales conversations, yet less than 1% of the insights gained on those calls ever reach CRM systems or sales leadership.
             </p>
             <p style={{ fontSize: '16px', lineHeight: 1.7, color: '#64748B', marginBottom: '36px' }}>
-              By pairing state-of-the-art speech-to-text models with proprietary natural language intelligence fine-tuned on B2B sales dynamics, CallVibe transcribes, evaluates, and converts raw audio into pipeline visibility, objection matrices, and personalized rep coaching.
+              By pairing state-of-the-art speech-to-text models with proprietary natural language intelligence fine-tuned on B2B sales dynamics, Silgate transcribes, evaluates, and converts raw audio into pipeline visibility, objection matrices, and personalized rep coaching.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px', margin: '40px 0' }}>
@@ -111,7 +111,7 @@ export default function SubPages({ currentTab, onBack, onOpenBooking }) {
         {currentTab === 'blog' && (
           <div style={{ maxWidth: '960px' }}>
             <span className="badge-pill badge-blue-subtle" style={{ marginBottom: '16px' }}>
-              CallVibe Insights & Blog
+              Silgate Insights & Blog
             </span>
             <h1 style={{ fontSize: '42px', fontWeight: '800', color: '#0F172A', marginBottom: '32px', letterSpacing: '-0.02em' }}>
               Latest Research in Voice AI & Revenue Operations
@@ -157,7 +157,7 @@ export default function SubPages({ currentTab, onBack, onOpenBooking }) {
               Customer Testimonials
             </span>
             <h1 style={{ fontSize: '42px', fontWeight: '800', color: '#0F172A', marginBottom: '32px', letterSpacing: '-0.02em' }}>
-              What revenue leaders say about CallVibe
+              What revenue leaders say about Silgate
             </h1>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
@@ -168,7 +168,7 @@ export default function SubPages({ currentTab, onBack, onOpenBooking }) {
                   ))}
                 </div>
                 <p style={{ fontSize: '15px', color: '#334155', fontStyle: 'italic', marginBottom: '16px' }}>
-                  "CallVibe helped our 30-rep SDR team boost discovery conversion by 28% in our first 45 days. The automatic summary notes alone saved our managers hundreds of hours."
+                  "Silgate helped our 30-rep SDR team boost discovery conversion by 28% in our first 45 days. The automatic summary notes alone saved our managers hundreds of hours."
                 </p>
                 <div style={{ fontWeight: '700', color: '#0F172A', fontSize: '14px' }}>Marcus Vance</div>
                 <div style={{ fontSize: '12px', color: '#64748B' }}>VP of Sales Development • CloudPeak</div>
@@ -203,7 +203,7 @@ export default function SubPages({ currentTab, onBack, onOpenBooking }) {
             </p>
             <div style={{ fontSize: '15px', lineHeight: 1.7, color: '#475569', display: 'flex', flexDirection: 'column', gap: '18px' }}>
               <p>
-                CallVibe provides an AI conversation intelligence platform designed to transcribe, evaluate, and assist sales organizations. We maintain enterprise-grade security controls, SOC2-aligned architectures, and strict zero-data retention policies for model retraining on customer proprietary voice data.
+                Silgate Solutions provides an AI conversation intelligence platform designed to transcribe, evaluate, and assist sales organizations. We maintain enterprise-grade security controls, SOC2-aligned architectures, and strict zero-data retention policies for model retraining on customer proprietary voice data.
               </p>
               <p>
                 Customer call recordings and transcripts are encrypted in transit using TLS 1.3 and at rest via AES-256. Customers retain full ownership and governance over all conversation telemetry, audio streams, and synthesized deal reports.

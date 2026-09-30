@@ -19,7 +19,7 @@ import {
 /**
  * SignupPage Component
  * 
- * Faithfully reproduces the CallVibe multi-step workspace registration flow:
+ * Silgate Solutions multi-step workspace registration flow:
  * - Dual-panel layout with branded sidebar and 4-step progress stepper
  * - Step 1: Workspace admin profile (Full Name, Work Email, Company, Website, Phone, Password)
  * - Step 2: Business configuration (Sales team size, Telephony stack, Monthly call hours)
@@ -104,11 +104,11 @@ export default function SignupPage({ onNavigate }) {
         <div
           onClick={() => onNavigate('home')}
           style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}
-          title="Return to CallVibe Homepage"
+          title="Return to Silgate Solutions Homepage"
         >
           <img
             src="/images/silgate-logo-latest.png"
-            alt="Silgate Logo"
+            alt="Silgate Solutions Logo"
             style={{ height: '28px', width: 'auto' }}
           />
         </div>
@@ -627,7 +627,7 @@ export default function SignupPage({ onNavigate }) {
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
                     <span style={{ color: '#64748B' }}>Workspace URL:</span>
-                    <strong style={{ color: '#2264F6' }}>app.callvibe.ai/{formData.companyName ? formData.companyName.toLowerCase().replace(/\s+/g, '-') : 'team'}</strong>
+                    <strong style={{ color: '#2264F6' }}>app.silgate.com/{formData.companyName ? formData.companyName.toLowerCase().replace(/\s+/g, '-') : 'team'}</strong>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
                     <span style={{ color: '#64748B' }}>Plan Status:</span>

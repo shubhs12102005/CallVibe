@@ -57,7 +57,7 @@ export default function Hero({ onOpenBooking }) {
               fontWeight: '400',
             }}
           >
-            CallVibe.ai is an AI-powered conversation intelligence platform that integrates with your cloud telephony, CRM, and sales stack to automatically record, transcribe, analyze, and score 100% of sales calls helping revenue teams improve conversions, coaching, and pipeline visibility.
+            Silgate Solutions is an AI-powered conversation intelligence platform that integrates with your cloud telephony, CRM, and sales stack to automatically record, transcribe, analyze, and score 100% of sales calls helping revenue teams improve conversions, coaching, and pipeline visibility.
           </p>
 
           {/* CTA Button with arrow hover transition */}

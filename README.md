@@ -1,16 +1,33 @@
-# React + Vite
+# Silgate Solutions
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Silgate Solutions is a modern React + Tailwind CSS frontend project delivering an AI-powered conversation intelligence platform for sales teams.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Silgate Solutions transforms sales conversations into actionable pipeline visibility, automated CRM entry, deal coaching, and revenue acceleration.
 
-## React Compiler
+### Features
+- **Voice AI & Speech Analytics**: Automated transcription, intent scoring, objection clustering, and call analytics.
+- **Enterprise Integrations**: Seamless connections with 14+ cloud telephony platforms (8x8, RingCentral, Zoom Phone, Exotel, Bonvoice, Zadarma) and CRMs (GoHighLevel, LeadSquared, MobileCRM).
+- **Interactive AI Sandbox**: Real-time voice transcription and sentiment telemetry demo.
+- **WhatsApp Conversation Intelligence**: Unified conversation intelligence across voice and messaging channels.
+- **Dedicated Application Routes**: Interactive flows for `/features`, `/integrations`, `/blog`, `/about`, `/contact`, `/login`, and `/signup`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Contact & Headquarters
 
-## Expanding the ESLint configuration
+- **Headquarters**: Road Number 8, SG Barve Rd, Wagle Estate, Padwal Nagar, Thane West, Maharashtra 400604
+- **Email**: [manoj@silgatehiring.com](mailto:manoj@silgatehiring.com)
+- **Phone**: [+91 81088 10916](tel:+918108810916)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+### Development
+```bash
+npm install
+npm run dev
+```
+
+### Build
+```bash
+npm run build
+```
